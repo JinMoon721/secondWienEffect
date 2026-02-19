@@ -48,7 +48,24 @@ load_params() {
     printf -v "$k" "%s" "${P[$k]}"
   done
 }
+### USE the following load_params function if zsh is used.
+#load_params() {
+#  local tgt="$1"
 
+#  # check existence
+#  if ! typeset -p "$tgt" >/dev/null 2>&1; then
+#    print -u2 "ERROR: unknown target '$tgt'. Known: ${targets[*]}"
+#    return 1
+#  fi
+
+  # copy keys/values from assoc array named $tgt into variables
+#  eval '
+#    local k
+#    for k in ${(k)'"$tgt"'}; do
+#      typeset -g "$k=${'"$tgt"'[$k]}"
+#    done
+#  '
+#}
 echo "Choose a target :"
 select target in "${targets[@]}"; do
   [[ -n "${targets:-}" ]] && break

@@ -1,6 +1,8 @@
 #Field-driven Ion Pairing Dynamics in Concentrated Electrolytes by Seokjin Moon and David T. Limmer
 Analysis code accompanying the manuscript submitted to arXiv (2026).
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18705204.svg)](https://doi.org/10.5281/zenodo.18705204)
+
 ---
 
 ## Overview

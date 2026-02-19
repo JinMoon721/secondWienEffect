@@ -141,6 +141,7 @@ Outputs:
 - GCC > 9
 - C++17 standard
 - bash > 4+
+- numpy >= 1.23
 
 Compile using:
 make

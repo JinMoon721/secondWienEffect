@@ -1,0 +1,64 @@
+### lammps input
+units       real
+dimension   3
+boundary    p p p
+atom_style  full
+
+pair_style lj/cut/coul/long 12. 12.
+
+bond_style harmonic
+angle_style harmonic
+
+read_data ./init.geometry
+
+pair_modify shift yes mix geometric
+
+kspace_style pppm 1e-4
+special_bonds charmm
+
+velocity all create 300. ${SEED} rot yes mom yes dist gaussian
+
+neighbor 2.0 bin
+timestep 0.5  # fs
+neigh_modify    every 1 delay 0 check yes
+
+group CT type 1
+group CZ type 2
+group NZ type 3
+group HC type 4
+group Li type 5
+group P type 6 ## P
+group F type 7 ## P
+group ions union Li P
+group solvent type 1 2 3 4
+
+
+## dump ions in dcd format
+dump 44 ions dcd 100 ./dumps/dumpD${PAIR}E${FIELD}.dcd 
+dump_modify 44 unwrap yes
+
+## dump full system in dcd format
+dump 41 all dcd 10000 ./videos/videoD${PAIR}E${FIELD}.dcd 
+dump_modify 41 unwrap yes
+
+minimize 1e-3 1e-5 10000 100000
+
+
+fix 5 all langevin 300. 300. 2000 ${SEED}
+fix			6 all nve
+
+thermo_style	custom  step temp pe ke etotal 
+thermo	200000
+thermo_modify	format float %20.15g
+
+fix kick1 CT addforce 0 0 ${FCT}
+fix kick2 CZ addforce 0 0 ${FCZ}
+fix kick3 NZ addforce 0 0 ${FNZ}
+fix kick4 HC addforce 0 0 ${FHC}
+fix kick5 Li addforce 0 0 ${FLi}
+fix kick6 P  addforce 0 0 ${FP}
+fix kick7 F  addforce 0 0 ${FF}
+
+restart 600000 ./restarts/restartaD${PAIR}E${FIELD} ./restarts/restartbD${PAIR}E${FIELD} ## 200 ps
+
+run 60000000 ## 20 ns

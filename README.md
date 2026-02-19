@@ -11,6 +11,8 @@ This repository contains the trajectory analysis framework used to compute:
 - Conductivity
 - Reactive trajectory mechanism analysis
 
+and plotting tools for figures.
+
 All analysis were performed on molecular dynamics trajectories generated using LAMMPS dcd format for concentrated electrolytes under applied electric fields.
 
 
@@ -18,8 +20,10 @@ All analysis were performed on molecular dynamics trajectories generated using L
 
 ## Repository Structure
 .
+├── simulations/ # LAMMPS input files
 ├── src/ # C++ source files
 ├── includes/ # C++ header files
+├── library/ # C++ source files for dcd readers
 ├── scripts/ # Shell scripts
 ├── data/
 │ ├── dumps/ # Input LAMMPS DCD files 
@@ -139,5 +143,10 @@ Outputs:
 
 Compile using:
 make
+
+
+## Plots
+
+need Seaborn
 
 

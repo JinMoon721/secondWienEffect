@@ -1,0 +1,1 @@
+mpirun -np 8 ~/programs/lammps/build/lmp_mpi -in input.in -var PAIR 05 -var FIELD 45 -var FO -0.84870 -var FH 0.42435 -var FLi 1.03500 -var FP 1.38690 -var FF -0.40365 -var SEED 17511  > logs/logD05E45

@@ -9,7 +9,7 @@ This file summarizes the numerical parameters used in the published analysis.
 - Inner boundary Ri = 5.3 A
 - Outer boundary Ro = 9.1 A
 
-Boundaries are defined using the cluster-based nearest-counterion distance described in Supplementary Note S?.
+Boundaries are defined using the cluster-based nearest-counterion distance described in Supplementary Note S1.
 
 --- 
 
@@ -22,17 +22,23 @@ CBNC probability distribution
 
 Simulations analyzed at:
 
-- 0, 1, 2, ,...
+- 0, 1, 5, 9, 13, 17, 19, 22, 25, 30, 35, 40, 45, 50 mV/A
 
 --- 
 
 ## System size
 
 LiPF6 in ACN:
-- xx ACN
-- x Li+
-- x PF6-
+- 511 ACN
+- 14 Li+
+- 14 PF6-
+- Box 36 x 36 x 36
 
+LiPF6 in H2O:
+- 750 H2O
+- 7 Li+
+- 7 PF6-
+- Box 28.57 x 28.57 x 28.57
 
 
 

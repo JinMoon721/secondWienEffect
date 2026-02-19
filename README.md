@@ -140,6 +140,7 @@ Outputs:
 
 - GCC > 9
 - C++17 standard
+- bash > 4+
 
 Compile using:
 make
